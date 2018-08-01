@@ -109,14 +109,14 @@ object Part4 extends App {
       "java.vm.name" -> System.getProperty("java.vm.name")
     )
 
-    val max = properties.foldLeft(0)((max, kv) => if (max < kv._1.length) kv._1.length else max)
+    val max = properties.foldLeft(0)(_ max _._1.length)
 
     for ((k, v) <- properties)
       println(String.format(s"%-${max + 10}s | %s", k, v))
     println()
   }
 
-  def minmax(values: Array[Int]): Tuple2[Int, Int] = {
+  def minmax(values: Array[Int]): (Int, Int) = {
     values
       .tail
       .foldLeft((values(0), values(0)))((t, x) =>
@@ -136,7 +136,7 @@ object Part4 extends App {
     println(s"Min: ${result._1}, Max: ${result._2}")
   }
 
-  def lteqgt(values: Array[Int], v: Int): Tuple3[Int, Int, Int] = {
+  def lteqgt(values: Array[Int], v: Int): (Int, Int, Int) = {
     values.foldLeft((0, 0, 0))((t, x) =>
       if(x < v)
         (t._1 + 1, t._2, t._3)

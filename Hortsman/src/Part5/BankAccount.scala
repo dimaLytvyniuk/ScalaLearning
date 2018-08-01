@@ -7,19 +7,21 @@ class BankAccount {
 
   def withdraw(sum: Int): Int = {
     if (sum > _balance)
-      return -1
+      -1
+    else {
+      _balance -= sum
 
-    _balance -= sum
-
-    return balance
+      balance
+    }
   }
 
   def deposit(sum: Int): Int = {
     if (sum <= 0)
-      return -1
+      -1
+    else {
+      _balance += sum
 
-    _balance += sum
-
-    return balance
+      balance
+    }
   }
 }

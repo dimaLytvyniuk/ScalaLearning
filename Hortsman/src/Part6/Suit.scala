@@ -8,10 +8,5 @@ object Suit extends Enumeration {
   val Hearts = Value("♥")
   val Spades = Value("♠")
 
-  def isRed(suit: Suit): Boolean = {
-    if (suit == Diamonds || suit == Hearts)
-      true
-    else
-      false
-  }
+  def isRed(suit: Suit): Boolean = (suit == Diamonds) || (suit == Hearts)
 }

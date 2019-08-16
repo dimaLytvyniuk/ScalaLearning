@@ -3,3 +3,7 @@
 *.iml
 */.idea
 */out
+*/bin
+Hortsman/src/bin/src/Part9.FilesAndRegex/WriteNumbers.txt
+Hortsman/src/bin/src/Part9.FilesAndRegex/ReadNumbers.txt
+Hortsman/src/bin/src/Part9.FilesAndRegex/Write.txt

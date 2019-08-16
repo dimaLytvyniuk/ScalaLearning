@@ -15,7 +15,7 @@ object Part2 extends App {
     println
   }
 
-  def sixthTask(str: String): Unit ={
+  def sixthTask(str: String): Unit = {
     var multi: Long = 1
     for (ch <- str)
       multi *= ch

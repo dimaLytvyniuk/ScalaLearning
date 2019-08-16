@@ -3,7 +3,6 @@ package Part4
 import java.io.File
 import java.util.Scanner
 
-import scala.collection.JavaConversions.mapAsScalaMap
 import scala.collection.mutable
 
 object Part4 extends App {
@@ -15,7 +14,7 @@ object Part4 extends App {
 
   def firstTask(): Unit = {
     val wantToBuy = Map("Notebook" -> 1500, "Smartphone" -> 300, "SSD" -> 250)
-    val discount = wantToBuy.map(entry => entry._1 -> (entry._2 * 0.9).toInt)
+    val discount = wantToBuy.map {case (key, vale) => key -> (vale * 0.9).toInt}
 
     printMap(wantToBuy)
     printMap(discount)
@@ -67,7 +66,7 @@ object Part4 extends App {
 
   def fifthTask(): Unit = {
     val in = new Scanner(new File("myfile.txt"))
-    val map: scala.collection.mutable.Map[String, Int] = new java.util.TreeMap[String, Int]()
+    val map = new scala.collection.mutable.TreeMap[String, Int]
 
     while (in.hasNext()) {
       val word = in.next()

@@ -5,7 +5,7 @@ import java.util.TimeZone
 import scala.collection.mutable.ArrayBuffer
 
 object Part3 extends App {
-  def printArray(array: IndexedSeq[Int]) = {
+  def printArray(array: Iterable[Int]) = {
     for (elem <- array) print(elem + " ")
     println
   }

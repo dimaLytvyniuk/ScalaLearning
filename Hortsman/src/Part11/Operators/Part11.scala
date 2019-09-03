@@ -49,5 +49,8 @@ object Part11 {
       case RichFile(pathFirst, pathSecond, pathThird, pathFourth) => println(pathFourth)
       case _ => println("notFound")
     }
+
+    val RichFile(fist, second, third, _*) = richFile
+    println(third)
   }
 }

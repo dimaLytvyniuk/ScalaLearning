@@ -10,6 +10,10 @@ object Part12 {
     fourthTask()
     fifthTask()
     sixtTask()
+    seventhTask()
+    eightTask()
+    ninthTask()
+    tenthTask()
   }
 
   def firstTask(): Unit = {
@@ -54,6 +58,48 @@ object Part12 {
     println(maxIndex)
   }
 
+  def seventhTask(): Unit = {
+    val pairs = (1 to 10) zip (11 to 20)
+
+    val result = adjustToPair(_ * _)((6, 7))
+    println(result)
+    println()
+
+    val mapped = pairs.map(x => adjustToPair(_ * _)(x))
+    for (value <- mapped) {
+      print(s"${value} ")
+    }
+    println()
+  }
+
+  def eightTask(): Unit = {
+    val a = Array("Hello", "World", "New")
+    val b = Array(5, 5, 3)
+    val isCorrespond = a.corresponds(b)((str, lenStr) => str.length == lenStr)
+
+    println(isCorrespond)
+  }
+
+  def ninthTask(): Unit = {
+    val a = Array("Hello", "World", "Neww")
+    val b = Array(5, 5, 3)
+    val isCorrespond = corresponds(a, b, (str: String, lenStr: Int) => str.length == lenStr)
+
+    println(isCorrespond)
+  }
+
+  def tenthTask(): Unit = {
+    val a = 12
+    val b = 5
+    unless(a == b) {
+      println("in block a == b")
+    }
+
+    unless(12 == 5 || a == b) {
+      println("in block 12 == 5 || a == b")
+    }
+  }
+
   def values(func: (Int) => Int, low: Int, high: Int): mutable.Map[Int, Int] = {
     val result = new mutable.HashMap[Int, Int]
 
@@ -81,5 +127,27 @@ object Part12 {
         else
           maxTuple
       })
+  }
+
+  def adjustToPair(func: (Int, Int) => Int): ((Int, Int)) => Int = {
+    (x: (Int, Int)) => func(x._1, x._2)
+  }
+
+  def corresponds[A, B](firstArray: Array[A], secondArray: Array[B], func: (A, B) => Boolean): Boolean = {
+    var i = 0
+    var result = true
+
+    while (i < firstArray.length && result) {
+      result = func(firstArray(i), secondArray(i))
+      i += 1
+    }
+
+    result
+  }
+
+  def unless(contition: => Boolean)(block: => Unit): Unit = {
+    if (!contition) {
+      block
+    }
   }
 }
